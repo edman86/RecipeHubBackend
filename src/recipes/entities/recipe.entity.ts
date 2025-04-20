@@ -1,8 +1,9 @@
 import {
-  BeforeInsert, BeforeUpdate,
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
-  Entity, JoinColumn,
+  Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -56,6 +57,6 @@ export class Recipe {
   @BeforeInsert()
   @BeforeUpdate()
   calculateTotalTime() {
-    return this.preparationTime + this.cookingTime;
+    this.totalTime = this.preparationTime + this.cookingTime;
   }
 }
